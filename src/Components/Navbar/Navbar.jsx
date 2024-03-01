@@ -3,11 +3,9 @@ import { Link, NavLink } from 'react-router-dom'
 import logo from "../../images/freshcart-logo.svg"
 import { cartcounter } from '../../Context/Context'
 import { wishcounter } from '../../Context/Wishcontext'
-import { user } from '../../Context/User'
 export default function Navbar() {
   let{WCounter,setWCounter}=useContext(wishcounter);
   let {Counter}=useContext(cartcounter);
-  let {userName,setuserName}=useContext(user);
   let un=localStorage.getItem('username')
   return <>
           <nav className="navbar navbar-expand-lg navbar-light bg-light " >
@@ -57,10 +55,12 @@ export default function Navbar() {
                   </a>
                   <ul className="dropdown-menu w-auto  position-absolute end-50 start-50"   aria-labelledby="navbarDropdown">
                     <li><NavLink className="dropdown-item" to="/Account">Account</NavLink></li>
+                    <li><NavLink className="dropdown-item" to={"/allorders"} >Orders</NavLink></li>
                     <li><NavLink  className="dropdown-item" onClick={()=>{
                     localStorage.removeItem('token')
                     localStorage.removeItem('username')
                     localStorage.removeItem('useremail')
+                    localStorage.removeItem('userID')
                     setWCounter(0)
                   }} to="/Signup" >LogOut</NavLink></li>
                   </ul>

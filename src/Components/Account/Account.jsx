@@ -1,10 +1,7 @@
-import React, { useContext } from 'react'
-import { user } from '../../Context/User'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
-
 export default function Account() {
-
-     let navigate=useNavigate()
+  let navigate=useNavigate()
   return (
     <div className=' container vh-100 my-5'>
            <h1>Account</h1>

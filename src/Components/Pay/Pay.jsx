@@ -13,47 +13,25 @@ export default function Pay(){
 
       setsp(true);
 
-      axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${id}?url=https://aahhmmeeddaammr.github.io/Ecommerce/#/Cart`,{"shippingAddress":values},{headers:{token:localStorage.getItem('token')}}).then(({data})=>{
-
+      axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${id}?url=https://aahhmmeeddaammr.github.io/Ecommerce/%23`,{"shippingAddress":values},{headers:{token:localStorage.getItem('token')}}).then(({data})=>{
           window.location.href=(data.session.url)
-    
         }).catch((err)=>{
-     
           if(err.response.data.message!="success"){
-    
             setsp(false);
-    
             seterror(err?.response.data.message)
-    
           }
-         
         })
-    
       }
-    
       let register=useFormik({
-    
         initialValues:{
-    
           details:'',
-    
           phone:'',
-    
           city:'',
-    
         },onSubmit,})
-
-
-     
      useEffect(()=>{
-      
       Aos.init();
-     
     },[])
-
-    
     return (
-    
     <div className='container vh-100'>
     
          <h2 className='my-5'>Pay Now:</h2>

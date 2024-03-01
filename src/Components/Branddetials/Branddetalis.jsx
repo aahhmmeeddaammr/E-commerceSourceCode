@@ -1,16 +1,17 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { wishcounter } from '../../Context/Wishcontext';
 
 import Prouduct from '../Prouduct/Prouduct';
 import Loading from '../Loading/Loading';
 export default function Branddetalis() {
+
      let {id}=useParams();
      let {Allproducts}=useContext(wishcounter);
      let [products,setproducts]=useState([])
      let[loading,setloading]=useState(true)
-     let navigate=useNavigate()
+
      function getAllProductsIncategory(){
           axios.get(`https://ecommerce.routemisr.com/api/v1/products?brand=${id}`).then(({data})=>{
                console.log(data);

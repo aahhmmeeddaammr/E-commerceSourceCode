@@ -25,6 +25,8 @@ import Resetcode from './Components/Forgetpass/Resetcode'
 import Changepassword from './Components/Forgetpass/Changepassword'
 import Pay from './Components/Pay/Pay'
 import { ToastContainer } from 'react-toastify';
+import Allorders from './Components/AllOrders/Allorders'
+import Order from './Components/OrderDetails/Order'
 export default function App() {
   let Router=createHashRouter(
     [{path:'/',element:<MainLayout/>,children:[
@@ -40,6 +42,8 @@ export default function App() {
       {path:'categorydetials/:id',element:<ProtectdProvider><CategoryDetials/></ProtectdProvider>},
       {path:'branddetials/:id',element:<ProtectdProvider><Branddetalis/></ProtectdProvider>},
       {path:'pay/:id',element:<ProtectdProvider><Pay/></ProtectdProvider>},
+      {path:'orderdetials/:id',element:<ProtectdProvider><Order/></ProtectdProvider>},
+      {path:'allorders',element:<ProtectdProvider><Allorders/></ProtectdProvider>},
   ]},
   {path:'/',element:<AuthLayOut/>,children:[
     {index:true,element:<Signup/>},

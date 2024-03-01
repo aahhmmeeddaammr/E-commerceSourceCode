@@ -3,7 +3,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import Prouduct from '../Prouduct/Prouduct';
 import { wishcounter } from '../../Context/Wishcontext';
 import Loading from '../Loading/Loading';
-
 export default function Products({ pagination }) {
      let { Allproducts } = useContext(wishcounter);
      let [bg, setbg] = useState(true)

@@ -13,9 +13,11 @@ export default function Signin() {
     setsp(true);
      axios.post('https://ecommerce.routemisr.com/api/v1/auth/signin',values).then(({data})=>{
         if(data.message=="success"){
+          console.log(data);
           localStorage.setItem('token',data?.token);
           localStorage.setItem('username',data?.user.name)
           localStorage.setItem('useremail',data?.user.email)
+          localStorage.setItem('userID',data?.user.id)
           Navigate('/');
         }
       }).catch((err)=>{
@@ -56,7 +58,7 @@ export default function Signin() {
           <input data-aos="fade-up" data-aos-duration={1200} onKeyDown={register.handleBlur} onBlur={register.handleBlur} onChange={register.handleChange}  type="password" name="password"  placeholder='UserPassword...' id="userpass"  className=' form-control mb-2'/>
           {(register.errors.password && register.touched.password)?<div className="alert alert-danger">{register.errors.password}</div>:''}        
         <Link data-aos="fade-up" data-aos-duration={1400} className=" text-main text-decoration-underline d-block" to="/ForgetPass">Forget Password?</Link>
-        <button data-aos="fade-up" data-aos-duration={1600} type="submit"  disabled={!(register.dirty&&register.isValid)} className=' btn bg-main my-3'>{sp?<i className="fa-solid fa-spinner fa-spin"></i>:"sumbit"}</button>
+        <button data-aos="fade-up" data-aos-duration={1600} type="submit"  disabled={!(register.dirty&&register.isValid)} className=' btn bg-main my-3 text-light'>{sp?<i className="fa-solid fa-spinner fa-spin"></i>:"sumbit"}</button>
       </form>
       {error?<div data-aos="fade-up" data-aos-duration={1700} className=" alert alert-danger">{error}</div>:''}
     </div>

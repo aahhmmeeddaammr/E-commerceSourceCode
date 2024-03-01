@@ -18,10 +18,15 @@ export default function ProductDetalis() {
      let {id}=useParams()
      async function getdetials(){
           let {data}=await axios.get(`https://ecommerce.routemisr.com/api/v1/products/${id}`)
+          console.log(data.data);
           setdetails(data.data)
           setloading(false);
      }
-useEffect(()=>{getdetials();AOs.init();window.scrollTo(0, 0)},[])
+     useEffect(()=>{
+          getdetials();
+          AOs.init();
+          window.scrollTo(0, 0)
+     },[])
      if(loading)return <Loading/>
   return (
     <div className=' container  py-5'>
@@ -29,6 +34,8 @@ useEffect(()=>{getdetials();AOs.init();window.scrollTo(0, 0)},[])
           <div className="col-md-3">
                <img data-aos="flip-right" data-aos-duration={10000} src={details?.imageCover} className='w-100' alt="" />
           </div>
+          <input type="t" name="" id="" />
+          <textarea name="" id="" cols="30" rows="10"></textarea>
           <div className="col-md-9">
                <h4 data-aos="fade-left">{details.title}</h4>
                <p data-aos="fade-left" className=' text-muted'>{details.description}</p>
