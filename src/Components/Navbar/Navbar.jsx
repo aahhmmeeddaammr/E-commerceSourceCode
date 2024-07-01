@@ -57,10 +57,7 @@ export default function Navbar() {
                     <li><NavLink className="dropdown-item" to="/Account">Account</NavLink></li>
                     <li><NavLink className="dropdown-item" to={"/allorders"} >Orders</NavLink></li>
                     <li><NavLink  className="dropdown-item" onClick={()=>{
-                    localStorage.removeItem('token')
-                    localStorage.removeItem('username')
-                    localStorage.removeItem('useremail')
-                    localStorage.removeItem('userID')
+                    localStorage.clear()
                     setWCounter(0)
                   }} to="/Signup" >LogOut</NavLink></li>
                   </ul>

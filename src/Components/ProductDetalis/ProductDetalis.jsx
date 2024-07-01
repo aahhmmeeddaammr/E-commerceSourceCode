@@ -34,8 +34,6 @@ export default function ProductDetalis() {
           <div className="col-md-3">
                <img data-aos="flip-right" data-aos-duration={10000} src={details?.imageCover} className='w-100' alt="" />
           </div>
-          <input type="t" name="" id="" />
-          <textarea name="" id="" cols="30" rows="10"></textarea>
           <div className="col-md-9">
                <h4 data-aos="fade-left">{details.title}</h4>
                <p data-aos="fade-left" className=' text-muted'>{details.description}</p>

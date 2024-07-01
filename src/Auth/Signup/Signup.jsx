@@ -19,8 +19,8 @@ export default function Signup() {
   let validationSchema=Yup.object({
     name:Yup.string().min(3).max(20).required(),
     email:Yup.string().email().required(),
-    password:Yup.string().matches(passregex).required(),
-    rePassword:Yup.string().oneOf([Yup.ref("password")]).required(),
+    password:Yup.string().matches(passregex , "Invalid Password").required(),
+    rePassword:Yup.string().oneOf([Yup.ref("password")] , " Invalid rePassword").required(),
     phone:Yup.string().matches(phoneregex)
   })
   let register=useFormik({
@@ -52,7 +52,7 @@ export default function Signup() {
           {(register.errors.password && register.touched.password)?<div className="alert alert-danger">{register.errors.password}</div>:''}
         
           <label htmlFor="userrepass" data-aos="fade-up" data-aos-duration={2400} className='my-2'>rePassword:</label>
-          <input onKeyDown={register.handleBlur} data-aos="fade-up" data-aos-duration={2700} onBlur={register.handleBlur} onChange={register.handleChange}  type="text" name="rePassword"  placeholder='rePassword...' id="userrepass"  className=' form-control mb-2'/>  
+          <input onKeyDown={register.handleBlur} data-aos="fade-up" data-aos-duration={2700} onBlur={register.handleBlur} onChange={register.handleChange}  type="password" name="rePassword"  placeholder='rePassword...' id="userrepass"  className=' form-control mb-2'/>  
           {(register.errors.rePassword && register.touched.rePassword)?<div className="alert alert-danger">{register.errors.rePassword}</div>:''}
 
           <label htmlFor="userPhone" data-aos="fade-up" data-aos-duration={3000} className='my-2'>Phone:</label>
